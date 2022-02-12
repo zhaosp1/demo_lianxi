@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>登录页面</title>
+  <link rel="stylesheet" href="css/login.css">
+  <script src="js/login.js"></script>
+</head>
+
+<body>
+<div id="login_frame">
+  <p id="image_logo">星跃科研管理系统</p>
+  <form method="post" action="#">
+    <p>
+      <label class="label_input">用户名</label>
+      <input type="text" id="username" class="text_field"/>
+    </p>
+    <p>
+      <label class="label_input">密码</label>
+      <input type="password" id="password" class="text_field"/>
+    </p>
+    <div id="login_control"> <a id="forget_pwd1" href="register.html">注册</a><a id="forget_pwd" href="forget_pwd.html">忘记密码？|</a> <br>
+      <br>
+      <input type="submit" id="btn_login1" value="登录" οnclick="login();"/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="reset" id="btn_login2" value="重置"/>
+    </div>
+  </form>
+</div>
+</body>
+</html>

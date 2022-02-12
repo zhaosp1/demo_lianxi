@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id="custom" class="com.example.springboot.spring.ioc.common.CustomImpl"></bean>
+
+
+    <!--构造方法进行对象的注入-->
+    <bean id="customerService1" class="com.example.springboot.spring.ioc.example02.CustomerServiceImpl">
+        <!--
+            index:代表构造方法参数的索引，0代表第一个参数，以此类推
+            ref: 代表引用另一个bean对象
+         -->
+        <constructor-arg index="0" ref="custom"></constructor-arg>
+    </bean>
+
+
+    <!--set方法通过属性进行对象的注入-->
+    <bean id="customerService2" class="com.example.springboot.spring.ioc.example02.CustomerServiceImpl">
+        <!--
+            name:代表CustomerServiceImpl中的setter方法名称
+            ref：代表引用另一个bean对象，即CustomerDaoImpl对象
+         -->
+        <property name="custom" ref="custom"></property>
+    </bean>
+
+
+    <!-- 开启SpringIOC注解扫描 -->
+    <context:component-scan base-package="com.example.springboot.spring.ioc.common"></context:component-scan>
+</beans>

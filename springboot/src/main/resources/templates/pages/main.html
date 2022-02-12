@@ -1,0 +1,140 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>main</title>
+    <!--    <script type="text/javascript" src="../static/js/jquery.min.js" th:src="@{/static/js/jquery.min.js}"></script>-->
+    <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="css/main.css" />
+    <script>
+        $(function(){
+            $("#nav>ul>li>a").click(function(){
+                $(this).parent().children('.slide').addClass('on');
+                $(this).parent().siblings().children('.slide').removeClass('on');
+            });
+
+            // project
+            $('#p1').click(function(){
+                $.get("/project/applypro",function(result){
+                    $('#main').html(result);
+                });
+            });
+            $('#p2').click(function(){
+                $.get("/project/newpro",function(result){
+                    $('#main').html(result);
+                });
+            });
+            $('#p3').click(function(){
+                // $.get("/project/editpro",function(result){
+                //     $('#main').html(result);
+                // });
+                $('#main').load('/project/editpro');
+            });
+
+            $('#p4').click(function(){
+                $.get("/project/export",function(result){
+                    $('#main').html(result);
+                });
+            });
+
+
+            // result
+            $('#r1').click(function(){
+                $.get("/result/newresult",function(result){
+                    $('#main').html(result);
+                });
+            });
+            $('#r2').click(function(){
+                $.get("/result/editreult",function(result){
+                    $('#main').html(result);
+                });
+            });
+            $('#r3').click(function(){
+                $.get("/result/export",function(result){
+                    $('#main').html(result);
+                });
+            });
+
+
+            // department
+            $('#d1').click(function(){
+                $.get("/department/depman",function(result){
+                    $('#main').html(result);
+                });
+            });
+            $('#d2').click(function(){
+                $.get("/department/userman",function(result){
+                    $('#main').html(result);
+                });
+            });
+
+
+            // role
+            $('#ro1').click(function(){
+                $.get("/role/mandep",function(result){
+                    $('#main').html(result);
+                });
+            });
+
+            $('#ro2').click(function(){
+                $.get("/role/manres",function(result){
+                    $('#main').html(result);
+                });
+            });
+            $('#ro3').click(function(){
+                $.get("/role/manuser",function(result){
+                    $('#main').html(result);
+                });
+            });
+            $('#ro4').click(function(){
+                $.get("/role/manpub",function(result){
+                    $('#main').html(result);
+                });
+            });
+        });
+    </script>
+</head>
+<body style="background-color: rgba(211,233,251,0.3)">
+<div class="header">
+    <p id="header" style="">星跃科研管理系统</p>
+</div>
+<div id="nav">
+    <ul style="list-style-type: none;display: inline-flex;">
+        <li> <a href="#">项目管理</a>
+            <ul class="slide">
+                <li><a href="#" id="p1">项目申请</a></li>
+                <li><a href="#" id="p2">项目新建</a></li>
+                <li><a href="#" id="p3">项目编辑</a></li>
+                <li><a href="#" id="p4">项目维护</a></li>
+            </ul>
+        </li>
+        <li><a href="#">科研管理</a>
+            <ul class="slide">
+                <li><a href="#" id="r1">科研信息录入</a></li>
+                <li><a href="#" id="r2">科研信息编辑</a></li>
+                <li><a href="#" id="r3">科研信息维护</a></li>
+            </ul>
+        </li>
+        <li><a href="#">部门管理</a>
+            <ul class="slide">
+                <li><a href="#" id="d1">部门管理</a></li>
+                <li><a href="#" id="d2">人员管理</a></li>
+            </ul>
+        </li>
+        <li><a href="#">角色管理</a>
+            <ul class="slide">
+                <li><a href="#" id="ro1">部门经理管理</a></li>
+                <li><a href="#" id="ro2">科研人员管理</a></li>
+                <li><a href="#" id="ro3">企业员工管理</a></li>
+                <li><a href="#" id="ro4">外部用户管理</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<span id="main"></span>
+<div id="iframe" style="margin: auto auto;width: 100%;height: 800px;"> </div>
+</body>
+</html>

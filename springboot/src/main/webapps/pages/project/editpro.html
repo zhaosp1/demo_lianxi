@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+        <head>
+        <meta charset="UTF-8">
+        <title>angular增删改查</title>
+<!--        <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>-->
+<!--          <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>-->
+          <script src="https://cdn.staticfile.org/angular.js/1.4.6/angular.min.js"></script>
+          <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+        <style type="text/css">
+#cll:nth-child(even) {
+	background-color: #64FFFF;
+}
+#cll:nth-child(odd) {
+	background-color: #C9ffff;
+}
+</style>
+        </head>
+        <script>
+          var app = angular.module("anan", []);
+          app.controller("enen", function($scope) {
+            //数据
+            $scope.user = [{
+              id: 1,
+              goodsName: "iPhone 8 Plus",
+              userName: "李1",
+              phone: "15123532587",
+              price: 7588.00,
+              city: "北京",
+              dtCreated: "09-04 10:00",
+              status: "已发货"
+            },
+              {
+                id: 2,
+                goodsName: "华为 畅享6S",
+                userName: "李2",
+                phone: "12548632587",
+                price: 899.00,
+                city: "天津",
+                dtCreated: "08-09 10:00",
+                status: "已发货"
+              },
+              {
+                id: 3,
+                goodsName: "努比亚Z17",
+                userName: "李3",
+                phone: "15897535896",
+                price: 2099.00,
+                city: "上海",
+                dtCreated: "07-01 10:00",
+                status: "待发货"
+              },
+              {
+                id: 4,
+                goodsName: "三星 Galaxy S7",
+                userName: "李4",
+                phone: "25687632547",
+                price: 2999.00,
+                city: "北京",
+                dtCreated: "06-02 10:00",
+                status: "已发货"
+              },
+              {
+                id: 5,
+                goodsName: "魅蓝5S",
+                userName: "李5",
+                phone: "15478963258",
+                price: 999.00,
+                city: "北京",
+                dtCreated: "10-03 10:00",
+                status: "已发货"
+              },
+              {
+                id: 6,
+                goodsName: "三星 Galaxy Note8",
+                userName: "李6",
+                phone: "12458796325",
+                price: 2599.00,
+                city: "北京",
+                dtCreated: "04-02 10:00",
+                status: "已收货"
+              },
+              {
+                id: 7,
+                goodsName: "OPPO R9sk",
+                userName: "李7",
+                phone: "12345698753",
+                price: 4999.00,
+                city: "北京",
+                dtCreated: "03-09 10:00",
+                status: "已发货"
+              },
+              {
+                id: 8,
+                goodsName: "红米Note4X",
+                userName: "李8",
+                phone: "12369874563",
+                price: 999.00,
+                city: "上海",
+                dtCreated: "05-18 10:00",
+                status: "已收货"
+              },
+              {
+                id: 9,
+                goodsName: "红米5A",
+                userName: "李9",
+                phone: "12354789635",
+                price: 599.00,
+                city: "重庆",
+                dtCreated: "06-16 10:00",
+                status: "待发货"
+              },
+              {
+                id: 10,
+                goodsName: "小米Mix2",
+                userName: "李10",
+                phone: "12355587996",
+                price: 3299.00,
+                city: "北京",
+                dtCreated: "03-15 10:00",
+                status: "待发货"
+              },
+              {
+                id: 11,
+                goodsName: "小米Note5",
+                userName: "李11",
+                phone: "12365987452",
+                price: 699.00,
+                city: "重庆",
+                dtCreated: "02-28 10:00",
+                status: "待发货"
+              },
+              {
+                id: 12,
+                goodsName: "VIVO X20",
+                userName: "李12",
+                phone: "12548796325",
+                price: 2998.00,
+                city: "上海",
+                dtCreated: "08-22 10:00",
+                status: "已发货"
+              }
+            ];
+            $scope.fahuo = function(id) {
+              for(var i in $scope.user) {
+                if($scope.user[i].id == id) {
+                  $scope.user[i].status ="已发货";
+                }
+              }
+            };
+            $scope.ckAll = function() {
+              for(var i = 0; i < $scope.user.length; i++) {
+                $scope.user[i].ck = $scope.flag;
+              }
+            }
+            $scope.del = function(id) {
+              for(var i in $scope.user) {
+                if($scope.user[i].id == id) {
+                  $scope.user.splice(i, 1);
+                }
+              }
+            };
+            $scope.delso = function() {
+              var shu = 0;
+              for(var i = 0; i < $scope.user.length; i++) {
+                if($scope.user[i].ck) {
+                  $scope.user.splice(i, 1);
+                  shu++;
+                  i--;
+                }
+              }
+            }
+            $scope.plfh = function() {
+              for(var i = 0; i < $scope.user.length; i++) {
+                if($scope.user[i].ck) {
+                  $scope.user[i].status="已发货";
+                }
+              }
+            }
+            $scope.insert = function() {
+              $scope.checkSub=[];
+              var cid=$scope.cunid;
+              var reg=/米/g;
+              var cgname=$scope.cungoodsName.replace(reg,"*") ;
+              var cuname=$scope.cunuserName;
+              var cphone=$scope.cunphone;
+              var cprice=$scope.cunprice;
+              var ccity=$scope.cuncity;
+              if(cid== "" || cid== null) {
+                $scope.checkSub.push("产品编号为空");
+              } else if(isNaN(cid)) {
+                $scope.checkSub.push("产品编号必须是数字");
+              }
+              if( cgname== "" || cgname== null) {
+                $scope.checkSub.push("产品名称为空");
+              }
+              if(cprice== "" ||cprice== null) {
+                $scope.checkSub.push("产品价格为空");
+              } else if(isNaN(cprice)) {
+                $scope.checkSub.push("产品价格必须是数字");
+              }
+              if(cphone== "" ||cphone== null) {
+                $scope.checkSub.push("手机号为空");
+              }else if(isNaN(cphone)){
+                $scope.checkSub.push("手机号必须是数字");
+              }else if(cphone.length!=11){
+                $scope.checkSub.push("手机号为11位");
+              }
+              console.log("------"+$scope.checkSub.length);
+              if($scope.checkSub.length > 0) {
+                $scope.cuo = true;
+              } else {
+                $scope.m=false;
+                $scope.cuo = false;
+                $scope.user.push({
+                  id:cid,
+                  goodsName:cgname,
+                  userName:cuname,
+                  phone:cphone,
+                  price:cprice,
+                  city:ccity,
+                  dtCreated: "02-28 10:00",
+                  status: "待发货"
+                });
+              }
+
+
+            }
+            $scope.filterByMonth = function (order) {
+              if ($scope.filter_begin_month == undefined || $scope.filter_begin_month == "") {
+                return true;
+              }
+              if ($scope.filter_end_month == undefined || $scope.filter_end_month == "") {
+                return true;
+              }
+              var beginMonth = parseInt($scope.filter_begin_month);
+              var endMonth = parseInt($scope.filter_end_month);
+              if (beginMonth > endMonth) {
+                return true;
+              }
+              var month = order.dtCreated.substr(0, order.dtCreated.indexOf("-"));
+              month = parseInt(month);
+              return (month >= beginMonth && month <= endMonth);
+            }
+            $scope.xiugai1 = function (id) {
+              for (var i in $scope.user) {
+                if ($scope.user[i].id == id) {
+                  $scope.gaigoodsName = $scope.user[i].goodsName;
+                  $scope.gaiuserName = $scope.user[i].userName;
+                  $scope.gaiphone = $scope.user[i].phone;
+                  $scope.gaiprice = $scope.user[i].price;
+                  $scope.gaiid = $scope.user[i].id;
+                }
+              }
+              $scope.fsf = true;
+            }
+            $scope.xiugai2 = function () {
+              var reg_=/米/g;
+              var n_name=$scope.gaigoodsName.replace(reg_,"*") ;
+              var n_xl=$scope.gaiuserName;
+              var n_hm=$scope.gaiphone ;
+              var n_price=$scope.gaiprice;
+              var n_id=$scope.gaiid;
+              for (var i = 0; i < $scope.user.length; i++) {
+                if($scope.user[i].id==n_id){
+                  $scope.user[i].goodsName=n_name;
+                  $scope.user[i].userName=n_xl;
+                  $scope.user[i].phone=n_hm;
+                  $scope.user[i].price=n_price;
+                }
+              }
+              $scope.fsf=false;
+            }
+          })
+
+        </script>
+        <body ng-app="anan" ng-controller="enen">
+        <div style="margin: 0 auto; height:800px;  width: 1200px;  border: 1px solid greenyellow; ">
+          <input placeholder="用户名搜索" ng-model="souname" />
+          <input placeholder="手机号搜索" ng-model="soutel" />
+          <select ng-model="soucity">
+            <option value="">选择城市</option>
+            <option value="北京">北京</option>
+            <option value="重庆">重庆</option>
+            <option value="天津">天津</option>
+            <option value="上海">上海</option>
+          </select>
+          <select ng-model="souzt">
+            <option value="">选择状态</option>
+            <option value="待发货">待发货</option>
+            <option value="已发货">已发货</option>
+            <option value="已收货">已收货</option>
+          </select>
+          <!--*****************************-->
+          <select ng-model="filter_begin_month">
+            <option value="">开始月份</option>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          <select ng-model="filter_end_month">
+            <option value="">结束月份</option>
+            <option value="1">01</option>
+            <option value="2">02</option>
+            <option value="3">03</option>
+            <option value="4">04</option>
+            <option value="5">05</option>
+            <option value="6">06</option>
+            <option value="7">07</option>
+            <option value="8">08</option>
+            <option value="9">09</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+          <!--正、反排序-->
+          <select ng-model="souid">
+            <option value="">id排序</option>
+            <option value="+id">id正序</option>
+            <option value="-id">id倒序</option>
+          </select>
+          <br/>
+          <button style=" background-color: #008000; margin: 6px; color: #FFFFFF;" ng-click="m=true">新增用户</button>
+          <button style="color: #FFFFFF; background-color: crimson;margin: 6px;" ng-click="plfh()">批量发货</button>
+          <button style="color: #FFFFFF; background-color: crimson;margin: 6px;" ng-click="delso()">批量删除</button>
+          <table style="width: 1160px;" border="1px">
+            <tr style="background-color: cadetblue;">
+              <td><input type="checkbox" ng-click="ckAll()" ng-model="flag" /></td>
+              <td width="20">id</td>
+              <td width="200">商品名</td>
+              <td width="200">用户名</td>
+              <td width="300">手机号</td>
+              <td width="100">价值</td>
+              <td width="100">城市</td>
+              <td width="100">下单时间</td>
+              <td width="100">状态</td>
+              <td style="width:120px;">操作</td>
+            </tr>
+            <tr id="cll" ng-repeat="e in user ">
+              <td><input type="checkbox" ng-model="e.ck"/></td>
+              <td>{{e.id}}</td>
+              <td><span>{{e.goodsName}}</span> <span  ng-show="u">
+                <input  ng-model="e.goodsName" style="width: 50px;"/>
+                <button  ng-click="u=false">保存</button>
+                </span></td>
+              <td><span>{{e.userName}}</span> <span  ng-show="r">
+                <input  ng-model="e.goodsName" style="width: 50px;"/>
+                <button  ng-click="r=false">保存</button>
+                </span></td>
+              <td><span>{{e.phone}}</span> <span  ng-show="y">
+                <input  ng-model="e.phone" style="width: 50px;"/>
+                <button  ng-click="y=false">保存</button>
+                </span></td>
+              <td>{{e.price}}</td>
+              <td>{{e.city}}</td>
+              <td>{{e.dtCreated}}</td>
+              <td><span ng-show="e.status=='待发货'" ng-click="fahuo(e.id)"><a href="#">发货</a></span> <span ng-show="e.status=='已发货'">已发货</span> <span ng-show="e.status=='已收货'">已收货</span></td>
+              <td style="width: 120px;"><button ng-click="xiugai1(e.id)">修改</button>
+                <button ng-click="del(e.id)">删除</button></td>
+            </tr>
+          </table>
+          <div style="width: 180px;border: 1px solid #000000; margin-left: 490px;" ng-show="m">
+            <div style="margin: 0 auto;">
+              <h2 style="margin-left: 30px;">新增商品</h2>
+              <input placeholder="id(大于原来最大的id)" ng-model="cunid " />
+              <input placeholder="商品名" ng-model="cungoodsName " />
+              <input placeholder="用户名 " ng-model="cunuserName "/>
+              <input placeholder="手机号 " ng-model="cunphone" />
+              <input placeholder="价格 " ng-model="cunprice" />
+              <br />
+              城市
+              <select ng-model="cuncity">
+                <option value="">选择城市</option>
+                <option value="北京 ">北京</option>
+                <option value="上海 ">上海</option>
+                <option value="天津 ">天津</option>
+                <option value="重庆 ">重庆</option>
+              </select>
+              <div style="width: 250px;" ng-show="cuo">
+                <ul>
+                  <li ng-repeat="chenk in checkSub">{{chenk}}</li>
+                </ul>
+              </div>
+              <br />
+              <button ng-click="insert()">提交</button>
+            </div>
+          </div>
+          <div style="width: 180px;border: 1px solid #000000; height: 250px; margin-left: 490px;" ng-show="fsf">
+            <div style="margin: 0 auto;">
+              <h2 style="margin-left: 30px;">修改商品</h2>
+              <input placeholder="id(大于原来最大的id)" ng-model="gaiid " />
+              <input placeholder="商品名" ng-model="gaigoodsName " />
+              <input placeholder="用户名 " ng-model="gaiuserName "/>
+              <input placeholder="手机号 " ng-model="gaiphone" />
+              <input placeholder="价格 " ng-model="gaiprice" />
+              <br />
+              <button ng-click="xiugai2()">修改</button>
+            </div>
+          </div>
+        </div>
+</body>
+</html>

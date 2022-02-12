@@ -1,0 +1,15 @@
+
+username: zhaosp1
+password: hahaha
+
+user:
+  name: zhaosp1
+  age: 28
+  list:
+    - apple
+    - pear
+    - orange
+    - banana
+  map: {username: july,age: 22}
+
+

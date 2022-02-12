@@ -1,0 +1,52 @@
+# 如果添加了视图解析，默认去templates下查找文件，如果访问静态文件，则需要redirect
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: springboot
+  datasource:
+    url: jdbc:mysql://localhost:3306/demo?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: 20133073
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  http:
+    multipart:
+      maxFileSize: 10Mb
+      maxRequestSize: 100Mb
+  jpa:
+    hibernate:
+      ddl-auto:update
+    show-sql: true
+    generate-ddl: true
+  mvc:
+    view:
+#      prefix: /temp/
+      suffix: .html
+#  resources:
+#    static-locations: classpath:/templates/**,classpath:/webapps/**,classpath:/static/**
+  thymeleaf:
+    cache: false
+#      #check-template: true
+#      #check-template-location: true
+#    prefix: classpath:/templates/
+#    suffix: .html
+    encoding: UTF-8
+    content-type: text/html
+    mode: HTML
+
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    lettuce:
+      pool:
+        max-active: 8  #最大连接数，负数表示无限等待
+        max-wait: -1  #最大等待，-1表示无限等待
+    database: 0
+#  cache:
+#    ehcache:
+#      config: ehcache.xml
+
+server:
+  port: 8082
+  servlet:
+    context-path: /
