@@ -3,6 +3,7 @@ package json.fastjson;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jsp.yidian.bean.Student;
 
 import java.io.IOException;
 
