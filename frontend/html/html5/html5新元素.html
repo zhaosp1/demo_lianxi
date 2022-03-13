@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>html5练习——新元素的使用</title>
+		<!--自定义标签-->
+		<style type="text/css">
+			* {
+				border: skyblue solid 1px;
+			}
+
+			.part {
+				color: aquamarine;
+				font-size: x-large;
+			}
+
+			.caption {
+				background-color: #7FFFD4;
+			}
+
+			.content {
+				border: skyblue dashed 1px;
+				border-radius: 4px;
+			}
+
+			.test {
+				display: inline;
+				width: 40%;
+			}
+
+			myhero {
+				display: block;
+				background-color: red;
+				font-size: 30px;
+				border: 1px blue solid;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<p class="caption">语义元素</p>
+			<!--html5定义了许多结构化标签，其目的是为了方便开发者开发。新定义的标签出元素名称以外与div等标签没有不同之处-->
+			<header>页眉</header>
+			<nav>导航栏</nav>
+			<aside>侧边栏</aside>
+			<main>网页主题</main>
+			<footer>页脚</footer>
+			<section>
+				<h1>wwf</h1>
+				<p>the world wide fund for nature</p>
+			</section>
+			<article>文章</article>
+			<figure>
+				<img src="../images/pig.gif" alt="The Pulpit Rock" width="304" height="228">
+			</figure>
+			<dialog open>this is an
+				<mark> open </mark>
+				dialog window</dialog>
+		</div>
+		<br>
+		<br>
+		<br>
+		<hr>
+		<div class="content">
+			<p class="caption">自定义元素</p>
+			<myhero>hello</myhero>
+		</div>
+
+
+		<div id="test">
+			<p class="caption">进度条</p>
+			<table>
+				<tr>
+					<p>下载进度：</p>
+					<progress value="22" max="100"></progress>
+				</tr>
+				<br>
+				<!--定义度量条-->
+				<tr>
+					<meter value="2" min="0" max="10">2 out of 10</meter>
+				</tr>
+				<br>
+				<tr>
+					<meter value="0.6">
+						60%/meter> </tr>
+				<!--对话框，open值规定dialog元素是有效的，用户可以与之进行交互-->
+				<tr>
+					<figure><img src="image/阳光.jpg" alt="阳光" width="400" /></figure>
+				</tr>
+				<br>
+				<tr>
+					<ruby>汉
+						<rt>han</rt>
+					</ruby>
+				</tr>
+				<br>
+				<br>
+				<tr>我们在每天早上
+					<time>9:00</time>
+					开始营业<br>
+					我在
+					<time datetime="2016-02-14">情人节</time>
+					送鲜花</tr>
+				<br>
+			</table>
+		</div>
+		<div class="content">
+			<p class="caption">summary元素的使用，点击即显示内容</p>
+			<details>
+				<summary>Copyright 1999-2011.</summary>
+				<p> - by Refsnes Data. All Rights Reserved.</p>
+				<p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+			</details>
+		</div>
+	</body>
+</html>

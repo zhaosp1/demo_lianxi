@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>无标题文档</title>
+		<script src="../jar/jquery.min.js"></script>
+		<script src="https://how2j.cn/study/jquery.min.js"></script>
+		<script>
+			$(function() {
+				$("#test1").click(function() {
+					$("#demo1").hide();
+				});
+				$("#test2").click(function() {
+					$("#demo1").show();
+				});
+				$("#test3").click(function() {
+					$("#demo1").toggle();
+				});
+				$("#test4").click(function() {
+					$("#demo1").show(1000);
+				});
+				$("#test5").click(function() {
+					$("#demo1").hide(1000);
+				});
+				$("#test6").click(function() {
+					$("#demo1").toggle(1000);
+				});
+				$("#test7").click(function() {
+					$("#demo1").slideUp();
+				});
+				$("#test8").click(function() {
+					$("#demo1").slideDown();
+				});
+				$("#test9").click(function() {
+					$("#demo1").slideToggle();
+				});
+				$("#test10").click(function() {
+					$("#demo1").slideUp(1000);
+				});
+				$("#test11").click(function() {
+					$("#demo1").slideDown(1000);
+				});
+				$("#test12").click(function() {
+					$("#demo1").slideToggle(1000);
+				});
+			});
+		</script>
+		<style>
+			div {
+				border: red 1px solid;
+				margin-top: 10px;
+			}
+
+			#demo1 {
+				background-color: #21B5E1;
+				width: 200px;
+				height: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="1">
+			<button id="test1">立即隐藏</button>
+			<button id="test2">立即显示</button>
+			<button id="test3">立即切换</button>
+			<br>
+			<button id="test4">延时显示</button>
+			<button id="test5">延时隐藏</button>
+			<button id="test6">延时切换</button>
+			<br>
+			<div id="demo1">用于显示效果</div><br>
+			<button id="test7">向上滑动</button>
+			<button id="test8">向下滑动</button>
+			<button id="test9">滑动切换</button>
+			<br>
+			<button id="test10">延时向上滑动</button>
+			<button id="test11">延时向下滑动</button>
+			<button id="test12">延时滑动切换</button>
+		</div>
+		<div id="2"></div>
+		<div id="3"></div>
+		<div id="4"></div>
+		<div id="5"></div>
+	</body>
+</html>

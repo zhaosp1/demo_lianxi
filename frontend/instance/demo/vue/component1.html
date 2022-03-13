@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>组件局部注册</title>
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <runoob></runoob>
+</div>
+ 
+<script>
+var Child = {
+  template: '<h1>自定义组件!</h1>'
+}
+ 
+// 创建根实例进行局部注册，子组件只能在当前父模板可用
+new Vue({
+  el: '#app',
+  components: {
+    // <runoob> 将只在父模板可用
+    'runoob': Child
+  }
+})
+</script>
+</body>
+</html>

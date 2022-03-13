@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>bootstrap练习——基本样式的应用</title>
+		<script src="https://how2j.cn/study/js/jquery/2.0.0/jquery.min.js"></script>
+		<link href="https://how2j.cn/study/css/bootstrap/3.3.6/bootstrap.min.css" rel="stylesheet">
+		<script src="https://how2j.cn/study/js/bootstrap/3.3.6/bootstrap.min.js"></script>
+		<style type="text/css">
+			* {
+				border: skyblue solid 1px;
+			}
+
+			.part {
+				color: aquamarine;
+				font-size: x-large;
+			}
+
+			.content {
+				border: skyblue dashed 1px;
+				border-radius: 4px;
+			}
+			.content>button{
+				margin-bottom: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<div>
+				<div class="part">
+					按钮样式
+				</div>
+				<div class="content">
+					原始按钮：<button type="button" class="btn">样式按钮</button><br>
+					默认按钮：<button type="button" class="btn btn-default">样式按钮</button><br>
+					提交按钮：<button type="button" class="btn btn-primary">样式按钮</button><br>
+					成功按钮：<button type="button" class="btn btn-success">样式按钮</button><br>
+					信息按钮：<button type="button" class="btn btn-info">样式按钮</button><br>
+					警告按钮：<button type="button" class="btn btn-warning">样式按钮</button><br>
+					危险按钮：<button type="button" class="btn btn-danger">样式按钮</button><br>
+					表现为链接按钮：<button type="button" class="btn btn-link">样式按钮</button><br>
+					大一点按钮：<button type="button" class="btn btn-lg">样式按钮</button><br>
+					小一点按钮：<button type="button" class="btn btn-sm">样式按钮</button><br>
+					最小的按钮：<button type="button" class="btn btn-xs">样式按钮</button><br>
+					宽屏按钮：<button type="button" class="btn btn-block">样式按钮</button><br>
+					激活状态按钮：<button type="button" class="btn active">样式按钮</button><br>
+					无效按钮：<button type="button" class="btn disabled">样式按钮</button><br>
+					混合样式按钮：<button type="button" class="btn disabled btn-danger btn-xs">样式按钮</button><br>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

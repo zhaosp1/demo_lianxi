@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<script type="text/javascript" src="pdf.js"/>
+		
+	</script>
+	<script type="text/javascript">
+		function show(){
+			var options = {
+				width:"100%",
+				height: "800px",
+				pdfOpenParams: {
+					view: 'FitV',
+					page: '0'
+				},
+				name: "mans",
+				fallbackLink: "您的浏览器暂不支撑此pdf，请下载最新的浏览器"
+			};
+			PDFObject.embed("工具类.pdf", "#example", options);
+		};
+	</script>
+</head>
+<body>
+	<button onclick="show()">预览pdf</button>
+	<div id="example"></div>
+</body>
+</html>

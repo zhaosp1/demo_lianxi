@@ -1,0 +1,18 @@
+* {
+	border: 1px solid aquamarine;
+}
+
+.part {
+	color: skyblue;
+	font-size: x-large;
+
+}
+
+.content {
+	border: skyblue dashed 1px;
+	border-radius: 4px;
+}
+
+.caption {
+	background-color: #7FFFD4;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>表单元素</title>
+		<meta name="description" content="html练习——表单元素的应用">
+		<style type="text/css">
+			* {
+				border: 1px solid aquamarine;
+			}
+			.part {
+				color: skyblue;
+				font-size: x-large;
+
+			}
+		</style>
+		<!-- 只有在浏览器不支持脚本或者禁用脚本时，才会显示 <noscript> 元素中的内容 -->
+		<noscript>Sorry, your browser does not support JavaScript!</noscript>
+	</head>
+	<body>
+		<div>
+			<form action="demo_form.php" method="post/get" title="表单(form)">
+				<div>
+					<div class="part">
+						输入框
+					</div>
+					<div style="vertical-align:bottom">
+						文本框：<input type="text" title="文本框(必填项)" required="required"><br>
+						密码框：<input type="password" title="密码框"><br>
+						文本域：<textarea rows="10" cols="20" title="文本域"></textarea><br>
+					</div>
+				</div>
+				<hr><br>
+				<div>
+					<div class="part" title="">
+						选择按钮
+					</div>
+					<div style="vertical-align:bottom">
+						单选按钮：<input type="radio" checked="checked" title="单选按钮"><br>
+						多选按钮：<input type="checkbox" checked="checked" title="多选按钮"><br>
+						图片按钮：<input type="image" src="images/view.jpg" width="20" height="20" title="图片按钮属于提交按钮"><br>
+						提交按钮：<input type="submit" value="提交" title="提交按钮"><br>
+						重置按钮：<input type="reset" title="重置按钮"><br>
+						隐藏按钮：<input type="hidden" title="隐藏按钮"><br>
+						下拉框按钮：<select title="下拉框按钮">
+							<option>苹果</option>
+							<option selected="selected">香蕉</option>
+							<option>樱桃</option>
+						</select>
+
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>模板语法</title>
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="moban1">
+	{{msg}}
+	<br>
+	<!-- v-on的缩写@ -->
+	<button @click="say(msg)">Say what</button>
+</div>
+<script type="text/javascript">
+	new Vue({
+		el:'#moban1',
+		data:{
+			msg:'hello world!'
+		},
+		methods: {
+    	say: function (message) {
+      	alert(message)
+   			 }
+  }
+	})
+</script>
+</body>
+</html>

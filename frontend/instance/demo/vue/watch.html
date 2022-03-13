@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>监听属性</title>
+	<meta charset="utf-8">
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="moban">
+	原始字符：<input type='text' v-model='msg'><br>
+	转换字符：{{text}}<br>
+	<p id="info"></p>
+</div>
+<script type="text/javascript">
+	var vm=new Vue({
+		el:'#moban',
+		data:{
+			msg:'hello world!',
+			text:''
+		},
+		watch:{
+			msg:function(value) {
+				this.msg=value,
+				this.text=this.msg.split('').reverse().join('')
+			}
+		}
+	});
+
+	 // $watch 是一个实例方法
+		vm.$watch('msg', function (newValue, oldValue) {
+			// 这个回调将在 vm.kilometers 改变后调用
+		    document.getElementById ("info").innerHTML = "修改前值为: " + oldValue + "，修改后值为: " + newValue;
+		})
+</script>
+</body>
+</html>

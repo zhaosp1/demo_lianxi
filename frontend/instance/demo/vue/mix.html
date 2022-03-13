@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue混入</title>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+<div id = "databinding"></div>
+<script type = "text/javascript">
+	// vue混入类似于jsp中的引入，将两个对象的属性方法合并，并且其被混入对象保持自己的特性
+	// 一般加载时，子组件先加载，然后vue实例加载
+	//如果两个对象拥有相同的属性或方法，vue实例的优先级更高会覆盖其余的属性方法
+var mixin = {
+	created: function () {
+		document.write('混入调用' + '<br>')
+	}
+}
+new Vue({
+	mixins: [mixin],
+		created: function () {
+		document.write('组件调用' + '<br>')
+	}
+});
+</script>
+</body>
+</html>

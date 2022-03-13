@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery选择器</title>
+		<script src="https://how2j.cn/study/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#test1").click(function() {
+					$("div#1 p:odd").toggleClass("pink");
+				});
+				$("#test2").click(function() {
+					$("div#1 p:even").toggleClass("pink");
+				});
+				$("#test3").click(function() {
+					$(".demo3").toggleClass("pink");
+				});
+				$("#test4").click(function() {
+					$("div#2 p:visible").hide();
+				});
+				$("#test5").click(function() {
+					$("div#2 p:hidden").show();
+				});
+				$("#test6").click(function() {
+					$(this).hide();
+				});
+			});
+		</script>
+		
+		<style>
+			div {
+				border: #D35637 1px solid;
+				margin-top: 10px;
+				display: block;
+			}
+
+			.pink {
+				background-color: pink;
+				display: block;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="1">
+			<!--选择伪类元素时，一定要选择是那个元素下的id，如div#1 p:even-->
+			<button id="test1">给奇数p元素添加背景色</button>
+			&nbsp;&nbsp;
+			<button id="test2">给偶数的元素添加背景色</button>
+			&nbsp;&nbsp;
+			<button id="test3">给class=demo3的元素添加背景色</button>
+			&nbsp;&nbsp;
+			<p id="demo1">少年不识愁滋味，爱上层楼。爱上层楼，为赋新词常说愁。</p>
+			<p id="demo2">少年不识愁滋味，爱上层楼。爱上层楼，为赋新词常说愁。</p>
+			<p class="demo3">少年不识愁滋味，爱上层楼。爱上层楼，为赋新词常说愁。</p>
+		</div>
+		<div id="2">
+			<button id="test4">隐藏可见的</button>&nbsp;&nbsp;
+			<button id="test5">显示不可见的</button>
+			<p id="demo4">而仅是却愁滋味，欲说还休。</p>
+		</div>
+		<div id="3"><button id="test6">hello world</button></div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery选择器</title>
+<script src="https://how2j.cn/study/jquery.min.js"></script>
+<script>
+	$(function(){
+		$("#test1").click(function(){$("div#1 p").toggleClass("pink");});
+		$("#test2").click(function(){$("#demo2").toggleClass("pink");});
+		$("#test3").click(function(){$(".demo3").toggleClass("pink");});
+	});
+		</script>
+<style>
+div {
+	border: #D35637 1px solid;
+	margin-top: 10px;
+	display: block;
+}
+.pink {
+	background-color: pink;
+	display: block;
+}
+</style>
+</head>
+
+<body>
+<div id="1">
+  <button id="test1">给所有的p元素添加背景色</button>
+  &nbsp;&nbsp;
+  <button id="test2">给id=demo2的元素添加背景色</button>
+  &nbsp;&nbsp;
+  <button id="test3">给class=demo3的元素添加背景色</button>
+  &nbsp;&nbsp;
+  <p id="demo1">少年不识愁滋味，爱上层楼。爱上层楼，为赋新词常说愁。</p>
+  <p id="demo2">少年不识愁滋味，爱上层楼。爱上层楼，为赋新词常说愁。</p>
+  <p class="demo3">少年不识愁滋味，爱上层楼。爱上层楼，为赋新词常说愁。</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>元素的显示与隐藏</title>
+		<!--将jquery库存放在当前html同一目录下-->
+		<script src="https://how2j.cn/study/jquery.min.js"></script>
+		<script>
+			$(function() {
+				$("#b1").click(function() {
+					$("#d").hide();
+				});
+				$("#b2").click(function() {
+					$("#d").show();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<!--隐藏与显示元素-->
+		<button id="b1">隐藏div</button>
+		<button id="b2">显示div</button>
+
+		<br>
+		<br>
+
+		<div id="d">
+
+			这是一个div
+
+		</div>
+	</body>
+</html>

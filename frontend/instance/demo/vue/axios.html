@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue插件axios</title>
+<script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+</head>
+<body>
+<div id="app">
+ axios的get请求
+  {{ info }}<br>
+  axios的post请求
+  {{msg}}<br>
+</div>
+<script type = "text/javascript">
+new Vue({
+  el: '#app',
+  data () {
+    return {
+      info: null,
+      msg:null
+    }
+  },
+  mounted () {
+    axios
+      .get('https://www.runoob.com/try/ajax/json_demo.json')
+      .then(response => (this.info = response))
+      .catch(function (error) { // 请求失败处理
+        console.log(error);
+      });
+      axios
+      .post('https://www.runoob.com/try/ajax/demo_axios_post.php')
+      .then(response => (this.msg = response))
+      .catch(function (error) { // 请求失败处理
+        console.log(error);
+      });
+  }
+})
+
+// axios(config)
+// // 发送 POST 请求
+// axios({
+//   method: 'post',
+//   url: '/user/12345',
+//   data: {
+//     firstName: 'Fred',
+//     lastName: 'Flintstone'
+//   }
+// });
+// //  GET 请求远程图片
+// axios({
+//   method:'get',
+//   url:'http://bit.ly/2mTM3nY',
+//   responseType:'stream'
+// })
+//   .then(function(response) {
+//   response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+// });
+// axios(url[, config])
+// // 发送 GET 请求（默认的方法）
+// axios('/user/12345');
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>模板语法测试</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="./vue.min.js"></script>
+</head>
+<body>
+<div id="box">
+	{{ msg }}
+</div>
+<script type = "text/javascript">
+window.onload = function(){
+var vm = new Vue({
+    el:'#box',
+    data:{
+        msg:'Hello World!',
+    },
+    methods:{
+        get:function(){
+            //发送get请求
+            this.$http.get('https://www.runoob.com/try/ajax/ajax_info.txt').then(function(res){
+                document.write(res.body);    
+            },function(){
+                console.log('请求失败处理');
+            });
+        }
+    }
+});
+}
+</script>
+</body>
+</html>
