@@ -5,7 +5,7 @@ import com.example.springboot.component.entity.ResourceEntity;
 import com.example.springboot.component.entity.RoleEntity;
 import com.example.springboot.component.entity.UserEntity;
 import com.example.springboot.repository.dao.UserDAO;
-import com.example.springboot.repository.util.ResourceUtil;
+import com.example.springboot.repository.util.path.ResourceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

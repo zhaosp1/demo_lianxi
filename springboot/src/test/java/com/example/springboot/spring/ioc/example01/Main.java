@@ -1,6 +1,5 @@
 package com.example.springboot.spring.ioc.example01;
 
-import com.example.springboot.repository.util.PathUtil;
 import com.example.springboot.spring.ioc.common.BeanFactory;
 import com.example.springboot.spring.ioc.common.Custom;
 import com.example.springboot.spring.ioc.common.CustomImpl;

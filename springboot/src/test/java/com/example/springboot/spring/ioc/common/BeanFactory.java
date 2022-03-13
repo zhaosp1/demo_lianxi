@@ -1,15 +1,9 @@
 package com.example.springboot.spring.ioc.common;
 
-import com.example.springboot.repository.util.PathUtil;
-import com.sun.xml.internal.messaging.saaj.util.ByteInputStream;
 import org.junit.Test;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.InputStream;
-import java.nio.file.Path;
 import java.util.Properties;
 
 /**

@@ -1,7 +1,8 @@
-package com.example.springboot.repository.util;
+package com.example.springboot.repository.util.data;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -35,6 +36,42 @@ public class StringUtil {
     public static final String IDNUMBER_REGEX = "(^[1-9]\\d{5}(18|19|20)\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}[0-9Xx]$)|" + "(^[1-9]\\d{5}\\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\\d{3}$)";
 
     public static final char NUM_ZERO='0';
+
+    /**
+     * 对decimal进行格式化
+     * @param str
+     * @return
+     */
+    public static String convertToPercent(String str){
+        DecimalFormat df = new DecimalFormat("0.000%");
+        return df.format(Double.valueOf(str));
+    }
+
+    /**
+     * 对decimal进行格式化
+     * @param str
+     * @param format
+     * @return
+     */
+    public static String convertToPercent(String str,String format){
+        if(isNull(format)){
+            format="0.00%";
+        }
+        DecimalFormat df = new DecimalFormat(format);
+        return df.format(Double.valueOf(str));
+    }
+
+    /**
+     * 校验是否为空或者“null”
+     * @param str
+     * @return
+     */
+    public static boolean isNull(String str) {
+        return str == null || str.trim().equalsIgnoreCase("") || str.trim().equalsIgnoreCase("null");
+    }
+    public static boolean isNull(Object obj) {
+        return obj == null || isNull(obj.toString());
+    }
     /**
      * @param IDNumber
      * @return
@@ -495,6 +532,11 @@ public class StringUtil {
         }
     }
 
+    /**
+     * 判断对象是否为空字符串或空指针
+     * @param obj
+     * @return
+     */
     public static boolean isEmpty(Object obj) {
         if (null == obj) {
             return true;
@@ -543,7 +585,7 @@ public class StringUtil {
 
     /**
      * obj to String
-     *
+     * 获取字符串，等于null则返回空字符串
      * @param obj 对象参数
      * @return 字符串
      */
@@ -555,6 +597,11 @@ public class StringUtil {
         }
     }
 
+    /**
+     * 获取字符串，等于null则返回0
+     * @param obj
+     * @return
+     */
     public static String getString0(Object obj) {
         if (obj == null) {
             return "0";
@@ -563,6 +610,11 @@ public class StringUtil {
         }
     }
 
+    /**
+     * 取字符串，null则返回null
+     * @param obj
+     * @return
+     */
     public static String getStringNull(Object obj) {
         if (obj == null) {
             return null;
@@ -693,5 +745,9 @@ public class StringUtil {
             result = new String(gbks,"GBK");
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(addZeroForString("20200712",14,1));
     }
 }

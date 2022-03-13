@@ -1,4 +1,4 @@
-package com.example.springboot.repository.util;
+package com.example.springboot.repository.util.path;
 
 import com.alibaba.fastjson.JSONArray;
 import com.example.springboot.component.entity.ResourceEntity;

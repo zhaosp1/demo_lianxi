@@ -1,4 +1,4 @@
-package com.example.springboot.repository.util;
+package com.example.springboot.repository.util.sql;
 
 import lombok.SneakyThrows;
 
