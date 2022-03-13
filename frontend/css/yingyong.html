@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css练习——css应用</title>
+		<style type="text/css">
+			.part {
+				color: skyblue;
+				font-size: x-large;
+
+			}
+
+			.content {
+				border: skyblue dashed 1px;
+				border-radius: 4px;
+			}
+
+			.key {
+				font-weight: bold;
+			}
+
+			.caption {
+				background-color: #7FFFD4;
+			}
+
+			.test1 ul {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			.test1 a {
+				display: block;
+				width: 60px;
+				background-color: #dddddd;
+			}
+
+			.dropbtn {
+				background-color: #4CAF50;
+				color: white;
+				padding: 16px;
+				font-size: 16px;
+				border: none;
+				cursor: pointer;
+			}
+
+			.dropdown {
+				position: relative;
+				display: inline-block;
+			}
+
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+			}
+
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover {
+				background-color: #f1f1f1
+			}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+
+			.dropdown:hover .dropbtn {
+				background-color: #3e8e41;
+			}
+
+			a.img1 {
+				margin: 0px 0.625rem;
+			}
+
+			img {
+				width: 200px;
+				height: 150px;
+			}
+
+			.test4 img {
+				opacity: 0.4;
+				filter: alpha(opacity=40);
+				/* For IE8 and earlier */
+			}
+
+			.test4 img:hover {
+				opacity: 1.0;
+				filter: alpha(opacity=100);
+				/* For IE8 and earlier */
+			}
+
+			/* 媒体类型 */
+			@media screen {
+				p.test {
+					font-family: verdana, sans-serif;
+					font-size: 14px;
+				}
+			}
+
+			@media print {
+				p.test {
+					font-family: times, serif;
+					font-size: 10px;
+				}
+			}
+
+			@media screen,
+			print {
+				p.test {
+					font-weight: bold;
+				}
+			}
+
+			img.home {
+				width: 46px;
+				height: 44px;
+				background: url(/statics/images/course/img_navsprites.gif) 0 0;
+			}
+
+			input[type="text"] {
+				width: 150px;
+				display: block;
+				margin-bottom: 10px;
+				background-color: yellow;
+			}
+
+			input[type="button"] {
+				width: 120px;
+				margin-left: 35px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<p class="part">css应用</p>
+			<div class="content test1">
+				<p class="caption">自定义导航栏</p>
+				<div>
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#news">News</a></li>
+						<li><a href="#contact">Contact</a></li>
+						<li><a href="#about">About</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="content">
+				<p class="caption">自定义下拉菜单</p>
+				<div>
+
+					<h2>下拉菜单</h2>
+					<p>鼠标移动到按钮上打开下拉菜单。</p>
+
+					<div class="dropdown">
+						<button class="dropbtn">下拉菜单</button>
+						<div class="dropdown-content">
+							<a href="http://www.w3cschool.cn">W3Cschool教程 1</a>
+							<a href="http://www.w3cschool.cn">W3Cschool教程 2</a>
+							<a href="http://www.w3cschool.cn">W3Cschool教程 3</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="content">
+				<p class="caption">自定义图片廊</p>
+				<div>
+					<a href="#" class="img1"><img src="images/25f9d0dceb88960d77fc743ad34e2965.jpg" alt=""></a>
+					<a href="#" class="img1"><img src="images/4ec22faa2f0e3d9dcf1b734b25cd5572.jpg" alt=""></a>
+					<a href="#" class="img1"><img src="images/677886a83871eb0499d80aa744151812.jpg" alt=""></a>
+					<a href="#" class="img1"><img src="images/69efd4948fdbdd7ccd4a5d0fd6eae6e6.jpeg" alt=""></a>
+				</div>
+			</div>
+			<div class="content">
+				<p class="caption">自定义图片透明效果</p>
+				<div class="test4">
+					<h1>Image Transparency</h1>
+					<img src="images/367ea7e21987fc99f9c71533af6c0136.jpg" width="150" height="113" alt="klematis">
+					<img src="images/2dae6e5c2dec4db8641e1f7b5e780b6a.jpg" width="150" height="113" alt="klematis">
+				</div>
+			</div>
+			<div class="content">
+				<p class="caption">自定义图像拼合技术</p>
+				<div>
+					<img class="home" src="images/51af170f82bcdddc901fdb9819ee47c2.jpeg">
+				</div>
+			</div>
+			<div class="content">
+				<p class="caption">属性选择器</p>
+				<div>
+					<form name="input" action="demo-form" method="get">
+						Firstname:<input type="text" name="fname" value="Peter" size="20">
+						Lastname:<input type="text" name="lname" value="Griffin" size="20">
+						<input type="button" value="Example Button">
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
